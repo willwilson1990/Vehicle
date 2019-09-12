@@ -4,7 +4,7 @@ public abstract class VehicleWILL {
 	
 	//These are variables
 	int passengers; //number of passengers
-	int fuelcap; //ammount of fuel vehicle can hold in gallons
+	int fuelcap; //amount of fuel vehicle can hold in gallons
 	int mpg; //miles per gallon
 	int doors; //number of doors
 	int tiresize; //tire size
@@ -95,7 +95,7 @@ public abstract class VehicleWILL {
 						}
 						
 					//abstract method
-						abstract String getMakeAndModel();
+						abstract void getMakeAndModel();
 						
 						//horn sound
 							public String honk()
@@ -113,33 +113,18 @@ public abstract class VehicleWILL {
 								return "Initiate velocity slowing mechanism";
 							};
 							
-						/*	// startcar
-							public void startCar(String keyused)
-							{
-								if (Vehicle.start(key)) 
-								{
-									System.out.println ("Car started.");
-								}
-								else
-									System.out.println ("Car didn't start.");
-								
-							};*/
-							
 							public static boolean start(String keyUsed)
 							{
 								if (keyUsed==key)
 									return true;
 								else
-					
 									return false;
 							};
 }
 
-
 class VehConsDemo
 {
 	public static void main (String [] args) //construct vehicles
-	
 	{
 		VehicleWILL minivan = new VehicleWILL (7, 16, 21);
 		VehicleWILL sportscar = new VehicleWILL (2, 14, 12);
