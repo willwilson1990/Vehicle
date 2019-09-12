@@ -49,7 +49,7 @@ public class automobile extends VehicleWILL {
 	private void updateVehicle() {
 		String [] trmPak = AutoModel.getPackageType();
 		//"Wheels","4","MPG","15","Color","Blue","Seats","2", "fuelCap","20", "tonage", "1.234"
-		int wCount, MPG, pass, fuelCap;
+		int  MPG, pass, fuelCap;
 		double tonage;
 		String colour = trmPak[5];
 		
@@ -67,18 +67,16 @@ public class automobile extends VehicleWILL {
 		 }
 		 
 		 
-		 
 		 try {
-			weight = Double.parseDouble(trmPak[11]);
+			 tonage = Double.parseDouble(trmPak[11]);
 		 }
 		 catch(Exception e) {
-			weight = .75;
+			 tonage = .75;
 			System.out.println("BAD TRIM PACKAGE");
 		 }
-	
-		
 	}
 
+	
 	public boolean isTrunk() {
 		return Trunk;
 	}
@@ -127,11 +125,9 @@ public class automobile extends VehicleWILL {
 		return super.doors ;
 	}
 	
-	/*String getMakeAndModel(String ModelName, String company) {    
-		return MakeAndModel;
+	@Override
+	void getMakeAndModel() {    
+		AutoMake.getMake();
+		AutoModel.getModelName();
 	}
-	
-	String setMakeAndModel(String newMakeAndModel) {
-		MakeAndModel = newMakeAndModel;
-	}*/
 }
