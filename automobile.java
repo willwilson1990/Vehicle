@@ -19,6 +19,7 @@ public class automobile extends VehicleWILL {
 		Title = "in glovebox";
 		AutoMake = new Maker();
 		AutoModel = new Model();
+		updateVehicle();
 		}
 	
 	automobile(int p, int f, int m, Maker vM, Model vMod ){
@@ -30,6 +31,7 @@ public class automobile extends VehicleWILL {
 		Title = "in glovebox";
 		AutoMake = vM;
 		AutoModel = vMod;
+		updateVehicle();
 	}
 	
 	automobile(int p, int f, int m, int d, int drs, int t, String c, int w, int y, int tm, Maker vM, Model vMod){
@@ -41,6 +43,40 @@ public class automobile extends VehicleWILL {
 		Title = "in glovebox";
 		AutoMake = vM;
 		AutoModel = vMod;
+		updateVehicle();
+	}
+	
+	private void updateVehicle() {
+		String [] trmPak = AutoModel.getPackageType();
+		//"Wheels","4","MPG","15","Color","Blue","Seats","2", "fuelCap","20", "tonage", "1.234"
+		int wCount, MPG, pass, fuelCap;
+		double tonage;
+		String colour = trmPak[5];
+		
+		 try {
+			 mpg = Integer.parseInt(trmPak[3]);
+			 passengers = Integer.parseInt(trmPak[7]);
+			 fuelcap = Integer.parseInt(trmPak[9]);
+		 }
+		 catch(Exception e) {
+			mpg = 20;
+			passengers = 4;
+			fuelCap = 20;
+			
+			System.out.println("BAD TRIM PACKAGE");
+		 }
+		 
+		 
+		 
+		 try {
+			weight = Double.parseDouble(trmPak[11]);
+		 }
+		 catch(Exception e) {
+			weight = .75;
+			System.out.println("BAD TRIM PACKAGE");
+		 }
+	
+		
 	}
 
 	public boolean isTrunk() {
@@ -83,18 +119,19 @@ public class automobile extends VehicleWILL {
 		 catch(Exception e) {
 			 System.out.println("BAD TRIM PACKAGE ");
 		 }
-		//return Integer.parseInt(PackageType[1]) ;
+		
 		 return wheelCount;
 	}
 	
 	int getNumDoors() {
-		return ;
+		return super.doors ;
 	}
 	
-	public void getMakeAndModel() {     //adds abstract method from VehicleWILL
-		return ;
+	/*String getMakeAndModel(String ModelName, String company) {    
+		return MakeAndModel;
 	}
-		
-
 	
+	String setMakeAndModel(String newMakeAndModel) {
+		MakeAndModel = newMakeAndModel;
+	}*/
 }
